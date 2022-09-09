@@ -8,21 +8,21 @@ namespace It_Takes_Klass
 {
     internal class WebsiteGenerator
     {
-        public string HTMLtop = "<!DOCTYPE>\n<html>\n<body>\n<main>";
-        public string HTMLbottom = "</main>\n</body>\n</html>";
-        public string[] techniques = {" C#", "daTAbaser", "WebbuTVeCkling ", "clean Code "};
+        private string HTMLtop = "<!DOCTYPE>\n<html>\n<body>\n<main>";
+        private string HTMLbottom = "</main>\n</body>\n</html>";
+        private string[] techniques = {" C#", "daTAbaser", "WebbuTVeCkling ", "clean Code "};
 
         public void HTMLbuilder(string className, List<string> classMessages)
         {
             Console.Clear();
-            Console.WriteLine(HTMLtop);
+            Console.WriteLine(this.HTMLtop);
             WelcomeClass(className);
             foreach(string message in classMessages)
             {
                 Console.WriteLine(message);
             }
-            Courses(techniques);
-            Console.WriteLine(HTMLbottom);
+            Courses(this.techniques);
+            Console.WriteLine(this.HTMLbottom);
         }
 
         public void WelcomeClass(string className)
@@ -49,7 +49,7 @@ namespace It_Takes_Klass
             {
                 Console.WriteLine($"Meddelande {i + 1}: ");
                 string j = Console.ReadLine();
-                messages.Add($"<p>{j}</p>");
+                messages.Add($"<p><b>Meddelande: </b>{j}</p>");
             }
             return messages;
         }
