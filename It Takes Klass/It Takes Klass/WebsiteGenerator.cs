@@ -10,8 +10,9 @@ namespace It_Takes_Klass
     {
         public string HTMLtop = "<!DOCTYPE>\n<html>\n<body>\n<main>";
         public string HTMLbottom = "</main>\n</body>\n</html>";
+        public string[] techniques = {" C#", "daTAbaser", "WebbuTVeCkling ", "clean Code "};
 
-        public void HTMLbuilder(string className, string courses, List<string> classMessages)
+        public void HTMLbuilder(string className, List<string> classMessages)
         {
             Console.Clear();
             Console.WriteLine(HTMLtop);
@@ -20,7 +21,7 @@ namespace It_Takes_Klass
             {
                 Console.WriteLine(message);
             }
-            Courses(courses);
+            Courses(techniques);
             Console.WriteLine(HTMLbottom);
         }
 
@@ -29,13 +30,15 @@ namespace It_Takes_Klass
             Console.WriteLine($"<h1>Välkomna {className}!</h1>");
         }
 
-        public void Courses(string courses)
+        public void Courses(string[] techniques)
         {
-            string[] strings = courses.Split(" ");
-            Console.WriteLine("<p>Ni kommer att läsa följande kurser:</p>");
-            for (int i = 0; i < strings.Length; i++)
+            Console.WriteLine("<p>Ni kommer att läsa följande kurser:</p>");                                    
+            foreach (string s in techniques)
             {
-                Console.WriteLine($"<p>- {strings[i]}</p>");
+                string k;
+                k = s.Trim().ToLower();
+                k = k.First().ToString().ToUpper() + k.Substring(1);
+                Console.WriteLine($"<p>Kurs om {k}</p>");
             }
         }
         public List<string> Messages(int classMessages)
