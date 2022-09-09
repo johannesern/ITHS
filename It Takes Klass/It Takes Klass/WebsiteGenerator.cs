@@ -53,15 +53,5 @@ namespace It_Takes_Klass
             }
             return messages;
         }
-
-        //public void HTMLtop()
-        //{
-        //    Console.WriteLine("<!DOCTYPE>\n<html>\n<body>\n<main>");
-        //}
-
-        //public void HTMLbottom()
-        //{
-        //    Console.WriteLine("</main>\n</body>\n</html>");
-        //}
     }
 }
