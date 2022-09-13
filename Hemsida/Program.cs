@@ -4,17 +4,17 @@
     {
         static void Main(string[] args)
         {
-            WebsiteGenerator websiteGenerator = new WebsiteGenerator();
+            string[] techniques = { "   C#", "daTAbaser", "WebbuTVeCkling ", "clean Code   " };                 // Från en ev fil
+            string[] messagesToClass = { "Glöm inte att övning ger färdighet!", "Öppna boken på sida 257." };   // Kanske har vi fått dessa värden ifrån en API
+            string className = ".NET Distans 2022";
+            string colour = "red";
 
-            Console.WriteLine("Vad heter klassen:");
-            string className = Console.ReadLine();
+            WebsiteGenerator websiteGenerator = new WebsiteGenerator(className, messagesToClass, techniques);
+            //websiteGenerator.PrintWebsite();
 
-            Console.WriteLine("Hur många meddelande vill ni skriva till klassen:");
-            int numberOfMessages = int.Parse(Console.ReadLine());
-            List<string> classMessages = websiteGenerator.Messages(numberOfMessages);
-
-            websiteGenerator.HTMLbuilder(className, classMessages);
-
+            StyledWebsiteGenerator styledWebsiteGenerator = new StyledWebsiteGenerator(className, messagesToClass, techniques, colour);
+            styledWebsiteGenerator.PrintWebsite();
+            Console.ReadLine();
         }
     }
 }

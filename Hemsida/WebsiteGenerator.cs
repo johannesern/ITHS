@@ -6,52 +6,106 @@ using System.Threading.Tasks;
 
 namespace Hemsida
 {
-    internal class WebsiteGenerator
+    public class WebsiteGenerator
     {
-        private string HTMLtop = "<!DOCTYPE>\n<html>\n<body>\n<main>";
-        private string HTMLbottom = "</main>\n</body>\n</html>";
-        private string[] techniques = { " C#", "daTAbaser", "WebbuTVeCkling ", "clean Code " };
+        protected string topHTML = "<!DOCTYPE>\n<html>\n<body>\n<main>\n";
+        protected string endHTML = "\n</main>\n</body>\n</html>";
+        protected string[] techniques, messageToClass;
+        protected string className;
 
-        public void HTMLbuilder(string className, List<string> classMessages)
+        public WebsiteGenerator(string className, string[] messageToClass, string[] techniques)
         {
-            Console.Clear();
-            Console.WriteLine(this.HTMLtop);
-            WelcomeClass(className);
-            foreach (string message in classMessages)
-            {
-                Console.WriteLine(message);
-            }
-            Courses(this.techniques);
-            Console.WriteLine(this.HTMLbottom);
+            this.className = className;
+            this.messageToClass = messageToClass;
+            this.techniques = Courses(techniques);
         }
 
-        public void WelcomeClass(string className)
+        virtual public void PrintWebsite()
+        {
+            PrintHtmlTop();
+            PrintWelcomeClass(className);
+            PrintMessages(messageToClass);
+            PrintCourses();
+            PrintHtmlEnd();
+        }
+
+        virtual protected void PrintHtmlTop()
+        {
+            Console.WriteLine(this.topHTML);
+        }
+
+        protected void PrintHtmlEnd()
+        {
+            Console.WriteLine(this.endHTML);
+        }
+        protected void PrintWelcomeClass(string className)
         {
             Console.WriteLine($"<h1>Välkomna {className}!</h1>");
         }
 
-        public void Courses(string[] techniques)
+        protected string[] Courses(string[] techniques)
         {
-            Console.WriteLine("<p>Ni kommer att läsa följande kurser:</p>");
-            foreach (string s in techniques)
+            string[] temp = new string[techniques.Length];
+            for (int i = 0; i < techniques.Length; i++)
             {
-                string k;
-                k = s.Trim().ToLower();
-                k = k.First().ToString().ToUpper() + k.Substring(1);
-                Console.WriteLine($"<p>Kurs om {k}</p>");
+                temp[i] = "<p> " + techniques[i].Trim().ToUpper().Substring(0, 1) + techniques[i].Trim().Substring(1).ToLower() + " <p/>";
+            }
+            return temp;
+        }
+
+        protected void PrintCourses()
+        {
+            foreach (var course in this.techniques)
+            {
+                Console.WriteLine(course);
             }
         }
-        public List<string> Messages(int classMessages)
+
+        protected void PrintMessages(string[] messageToClass)
         {
-            Console.Clear();
-            List<string> messages = new List<string>();
-            for (int i = 0; i < classMessages; i++)
+            foreach (string message in messageToClass)
             {
-                Console.WriteLine($"Meddelande {i + 1}: ");
-                string j = Console.ReadLine();
-                messages.Add($"<p><b>Meddelande: </b>{j}</p>");
+                Console.WriteLine($"<p> Meddelande: {message} </p>");
             }
-            return messages;
         }
+    }
+
+    public class StyledWebsiteGenerator : WebsiteGenerator
+    {
+        protected new string topHTML = "<!DOCTYPE>\n<html>";        
+        protected string midHTML = "<body>\n<main>\n";
+        protected new string endHTML = "\n</main>\n</body>\n</html>";
+        string Colour;
+
+        public StyledWebsiteGenerator(string className, string[] messageToClass, string[] techniques, string colour) 
+                                    : base(className, messageToClass, techniques)
+        {
+            this.Colour = colour;
+        }
+
+        override public void PrintWebsite()
+        {
+            PrintHtmlTop();
+            PrintHtmlStyle();
+            PrintHtmlMid();
+            PrintWelcomeClass(className);
+            PrintMessages(messageToClass);
+            PrintCourses();
+            PrintHtmlEnd();
+        }
+        override protected void PrintHtmlTop()
+        {
+            Console.WriteLine(this.topHTML);
+        }
+        private void PrintHtmlStyle()
+        {
+            Console.WriteLine($"<head>\n<style>\np {{ color: {Colour}; }}\n</style>\n</head>");
+        }
+
+        private void PrintHtmlMid()
+        {
+            Console.WriteLine(this.midHTML);
+        }
+
     }
 }
