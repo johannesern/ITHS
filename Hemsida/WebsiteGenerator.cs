@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace It_Takes_Klass
+namespace Hemsida
 {
     internal class WebsiteGenerator
     {
         private string HTMLtop = "<!DOCTYPE>\n<html>\n<body>\n<main>";
         private string HTMLbottom = "</main>\n</body>\n</html>";
-        private string[] techniques = {" C#", "daTAbaser", "WebbuTVeCkling ", "clean Code "};
+        private string[] techniques = { " C#", "daTAbaser", "WebbuTVeCkling ", "clean Code " };
 
         public void HTMLbuilder(string className, List<string> classMessages)
         {
             Console.Clear();
             Console.WriteLine(this.HTMLtop);
             WelcomeClass(className);
-            foreach(string message in classMessages)
+            foreach (string message in classMessages)
             {
                 Console.WriteLine(message);
             }
@@ -32,7 +32,7 @@ namespace It_Takes_Klass
 
         public void Courses(string[] techniques)
         {
-            Console.WriteLine("<p>Ni kommer att läsa följande kurser:</p>");                                    
+            Console.WriteLine("<p>Ni kommer att läsa följande kurser:</p>");
             foreach (string s in techniques)
             {
                 string k;
