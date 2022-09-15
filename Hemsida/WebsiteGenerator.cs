@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 
 namespace Hemsida
 {
-    public class WebsiteGenerator
+    abstract public class WebsiteGeneratorBlueprint
     {
-        protected string topHTML = "<!DOCTYPE>\n<html>\n<body>\n<main>\n";
-        protected string endHTML = "\n</main>\n</body>\n</html>";
-        protected string[] techniques, messageToClass;
-        protected string className;
+		protected string topHTML = "<!DOCTYPE>\n<html>\n<body>\n<main>\n";
+		protected string endHTML = "\n</main>\n</body>\n</html>";
+		protected string[] techniques, messageToClass;
+		protected string className;
 
+		public abstract void PrintWebsite();
+        protected abstract void PrintHtmlTop();
+        protected abstract void PrintHtmlEnd();
+        protected abstract void PrintWelcomeClass(string className);
+        protected abstract string[] Courses(string[] techniques);
+        protected abstract void PrintCourses();
+        protected abstract void PrintMessages(string[] messageToClass);
+	}
+
+    public class WebsiteGenerator : WebsiteGeneratorBlueprint
+	{
         public WebsiteGenerator(string className, string[] messageToClass, string[] techniques)
         {
             this.className = className;
@@ -20,7 +31,7 @@ namespace Hemsida
             this.techniques = Courses(techniques);
         }
 
-        virtual public void PrintWebsite()
+        override public void PrintWebsite()
         {
             PrintHtmlTop();
             PrintWelcomeClass(className);
@@ -29,21 +40,21 @@ namespace Hemsida
             PrintHtmlEnd();
         }
 
-        virtual protected void PrintHtmlTop()
+        override protected void PrintHtmlTop()
         {
             Console.WriteLine(this.topHTML);
         }
 
-        protected void PrintHtmlEnd()
+		override protected void PrintHtmlEnd()
         {
             Console.WriteLine(this.endHTML);
         }
-        protected void PrintWelcomeClass(string className)
+		override protected void PrintWelcomeClass(string className)
         {
             Console.WriteLine($"<h1>Välkomna {className}!</h1>");
         }
 
-        protected string[] Courses(string[] techniques)
+		override protected string[] Courses(string[] techniques)
         {
             string[] temp = new string[techniques.Length];
             for (int i = 0; i < techniques.Length; i++)
@@ -53,7 +64,7 @@ namespace Hemsida
             return temp;
         }
 
-        protected void PrintCourses()
+		override protected void PrintCourses()
         {
             foreach (var course in this.techniques)
             {
@@ -61,7 +72,7 @@ namespace Hemsida
             }
         }
 
-        protected void PrintMessages(string[] messageToClass)
+		override protected void PrintMessages(string[] messageToClass)
         {
             foreach (string message in messageToClass)
             {
