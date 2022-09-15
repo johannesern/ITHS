@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Hemsida
 {
-    public class WebsiteGenerator
+    internal interface IWebsiteGenerator
+    {
+        void PrintWebsite();
+	}
+    public class WebsiteGenerator : IWebsiteGenerator
     {
         protected string topHTML = "<!DOCTYPE>\n<html>\n<body>\n<main>\n";
         protected string endHTML = "\n</main>\n</body>\n</html>";
@@ -34,7 +38,7 @@ namespace Hemsida
             Console.WriteLine(this.topHTML);
         }
 
-        protected void PrintHtmlEnd()
+		protected void PrintHtmlEnd()
         {
             Console.WriteLine(this.endHTML);
         }
