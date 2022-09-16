@@ -10,7 +10,7 @@
 			string colour = "red";
 
 			WebsiteGenerator websiteGenerator = new WebsiteGenerator(className, messagesToClass, techniques);
-			websiteGenerator.PrintWebsite()       ;
+			websiteGenerator.PrintWebsite();
 
 			Console.WriteLine("\n==============================================================\n");
 
