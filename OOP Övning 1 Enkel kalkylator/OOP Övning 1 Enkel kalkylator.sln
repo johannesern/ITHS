@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fordon", "Fordon.csproj", "{465BEB74-0A1C-43A1-B8F9-182838114A9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP Övning 1 Enkel kalkylator", "OOP Övning 1 Enkel kalkylator.csproj", "{87982819-17CA-47B1-B296-2A06BD35F5E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{465BEB74-0A1C-43A1-B8F9-182838114A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{465BEB74-0A1C-43A1-B8F9-182838114A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{465BEB74-0A1C-43A1-B8F9-182838114A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{465BEB74-0A1C-43A1-B8F9-182838114A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87982819-17CA-47B1-B296-2A06BD35F5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87982819-17CA-47B1-B296-2A06BD35F5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87982819-17CA-47B1-B296-2A06BD35F5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87982819-17CA-47B1-B296-2A06BD35F5E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {32EED8DA-BD74-4051-AEA8-28242A793E4A}
+		SolutionGuid = {283533D4-D8D3-446D-8F5A-07BCC7D9B4FA}
 	EndGlobalSection
 EndGlobal

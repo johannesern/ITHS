@@ -1,4 +1,4 @@
-﻿namespace Fordon
+﻿namespace Demo_och_Arv
 {
 	internal class Program
 	{
@@ -29,7 +29,6 @@
 			Console.ReadLine();
 		}
 	}
-
 	public class Fordon
 	{
 		public string type;
@@ -42,7 +41,7 @@
 		public int amountWindows;
 		public string registrationNumber;
 
-		public Bil (int amountWheels, int amountWindows, string registrationNumber)
+		public Bil(int amountWheels, int amountWindows, string registrationNumber)
 		{
 			this.amountWheels = amountWheels;
 			this.amountWindows = amountWindows;
@@ -56,7 +55,7 @@
 		public bool hasCabin;
 		public int knots;
 
-		public Båt (bool hasExternalEngine, bool hasCabin, int knots)
+		public Båt(bool hasExternalEngine, bool hasCabin, int knots)
 		{
 			this.hasExternalEngine = hasExternalEngine;
 			this.hasCabin = hasCabin;
