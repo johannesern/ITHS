@@ -7,7 +7,7 @@ namespace Extension_Methods_3
 	{
 		static void Main(string[] args)
 		{
-			string test = "Jag älskar att köra motorcykel!";
+			string test = "Visual Studio is an awesome IDE!";
 			foreach (string s in test.ToLineArray())
 			{
 				Console.WriteLine(s);

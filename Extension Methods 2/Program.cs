@@ -6,7 +6,7 @@ namespace Extension_Methods_2
 	{
 		static void Main(string[] args)
 		{
-			string test = "Jag älskar att köra motorcykel!";
+			string test = "Visual Studio is an awesome IDE!";
 			Console.WriteLine(test.WordCount().ToString());
 		}
 	}
