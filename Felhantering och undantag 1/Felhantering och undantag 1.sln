@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Felhantering och undantag 1", "Felhantering och undantag 1.csproj", "{616B1555-6EF0-4CAF-B917-2B1D062B28AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{616B1555-6EF0-4CAF-B917-2B1D062B28AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616B1555-6EF0-4CAF-B917-2B1D062B28AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616B1555-6EF0-4CAF-B917-2B1D062B28AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616B1555-6EF0-4CAF-B917-2B1D062B28AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D71692E3-F6BA-4D13-A006-0AE359D26BDC}
+	EndGlobalSection
+EndGlobal

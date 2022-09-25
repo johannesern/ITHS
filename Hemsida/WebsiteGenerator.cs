@@ -72,15 +72,15 @@ namespace Hemsida
 
     public class StyledWebsiteGenerator : WebsiteGenerator
     {
-        protected new string topHTML = "<!DOCTYPE>\n<html>";        
-        protected string midHTML = "<body>\n<main>\n";
+        protected new string topHTML = "<!DOCTYPE>\n<html>\n<head>";        
+        protected string midHTML = "</head>\n<body>\n<main>\n";
         protected new string endHTML = "\n</main>\n</body>\n</html>";
-        string Colour;
+        string color;
 
         public StyledWebsiteGenerator(string className, string[] messageToClass, string[] techniques, string colour) 
                                     : base(className, messageToClass, techniques)
         {
-            this.Colour = colour;
+            this.color = colour;
         }
 
         override public void PrintWebsite()
@@ -99,7 +99,7 @@ namespace Hemsida
         }
         private void PrintHtmlStyle()
         {
-            Console.WriteLine($"<head>\n<style>\np {{ color: {Colour}; }}\n</style>\n</head>");
+            Console.WriteLine($"<style>\np {{ color: {color}; }}\n</style>");
         }
 
         private void PrintHtmlMid()
