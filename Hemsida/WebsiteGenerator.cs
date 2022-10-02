@@ -22,14 +22,35 @@ namespace Hemsida
 
         virtual public void PrintWebsite()
         {
-            PrintHtmlTop();
+			Console.Clear();
+			PrintHtmlTop();
             PrintWelcomeClass(className);
             PrintMessages(messageToClass);
             PrintCourses();
             PrintHtmlEnd();
         }
 
-        virtual protected void PrintHtmlTop()
+        virtual public void SaveWebsiteToFile()
+        {
+            FileInfo fi = new FileInfo(@"website.txt");
+            FileStream fs = fi.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.Write(this.topHTML);
+            sw.Write($"<h1>Välkomna {className}!</h1>");
+			foreach (string message in messageToClass)
+            {
+                sw.Write(message);
+            }
+            foreach (string course in this.techniques)
+            {
+                sw.Write(course);
+            }
+            sw.Write(this.endHTML);
+            sw.Close();
+		}
+
+
+		virtual protected void PrintHtmlTop()
         {
             Console.WriteLine(this.topHTML);
         }
@@ -40,10 +61,10 @@ namespace Hemsida
         }
         protected void PrintWelcomeClass(string className)
         {
-            Console.WriteLine($"<h1>Välkomna {className}!</h1>");
+			Console.WriteLine($"<h1>Välkomna {className}!</h1>");
         }
-
-        protected string[] Courses(string[] techniques)
+		
+		protected string[] Courses(string[] techniques)
         {
             string[] temp = new string[techniques.Length];
             for (int i = 0; i < techniques.Length; i++)
@@ -72,8 +93,8 @@ namespace Hemsida
 
     public class StyledWebsiteGenerator : WebsiteGenerator
     {
-        protected new string topHTML = "<!DOCTYPE>\n<html>\n<head>";        
-        protected string midHTML = "</head>\n<body>\n<main>\n";
+        protected new string topHTML = "<!DOCTYPE>\n<html>\n<head>";
+		protected string midHTML = "</head>\n<body>\n<main>\n";
         protected new string endHTML = "\n</main>\n</body>\n</html>";
         string color;
 
@@ -85,6 +106,7 @@ namespace Hemsida
 
         override public void PrintWebsite()
         {
+            Console.Clear();
             PrintHtmlTop();
             PrintHtmlStyle();
             PrintHtmlMid();
@@ -93,13 +115,36 @@ namespace Hemsida
             PrintCourses();
             PrintHtmlEnd();
         }
-        override protected void PrintHtmlTop()
+            
+		override public void SaveWebsiteToFile()
+		{
+			FileInfo fi = new FileInfo(@"website.txt");
+			FileStream fs = fi.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
+			StreamWriter sw = new StreamWriter(fs);
+			sw.WriteLine(this.topHTML);
+            sw.WriteLine($"<style>\np {{ color: {color}; }}\n</style>");
+            sw.WriteLine(this.midHTML);
+			sw.Write($"<h1>Välkomna {className}!</h1>");
+			foreach (string message in messageToClass)
+			{
+				sw.WriteLine(message);
+			}
+			foreach (string course in this.techniques)
+			{
+				sw.WriteLine(course);
+			}
+			sw.WriteLine(this.endHTML);
+			sw.Close();
+		}
+
+		override protected void PrintHtmlTop()
         {
             Console.WriteLine(this.topHTML);
         }
         private void PrintHtmlStyle()
         {
-            Console.WriteLine($"<style>\np {{ color: {color}; }}\n</style>");
+            string style = $"<style>\np {{ color: {color}; }}\n</style>";
+			Console.WriteLine(style);
         }
 
         private void PrintHtmlMid()

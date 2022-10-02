@@ -1,13 +1,20 @@
 ﻿using System.Globalization;
 using System.Threading;
 
+//Övning 4
+//Bygg vidare på Övning 3 men använd en Dictionary istället. 
+//Som nyckel använder du "k5" etc eftersom dessa är unika i en kortlek på 52 kort. 
+//Som värde lagrar du int, Ess = 1, Kung = 13, etc. 
+//Dra nu två kort åt gången utan att "minska" kortleken och skriv ut "PAR" de gånger du drar två lika kort, dvs att värdet är lika. 
+//För att lösa detta måste du slumpvis kunna välja en nyckel i Dictionary vilket du kan genom att gå på Keys i Dictionary som i sig är en lista. 
+//Försök till sist beräkna hur många gånger det blir "PAR" om du gör 1000 dragningar.
+
 namespace Samlingsklasser_4___Dictionary
 {
 	internal class Program
 	{
 		static void Main(string[] args)
 		{
-			//Första random
 			Random random1 = new Random();
 			int firstCard = random1.Next(1, 53);
 			Dictionary<string, int> dictionary = CreateDictionary();
