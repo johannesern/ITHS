@@ -9,7 +9,7 @@
             string className = ".NET Distans 2022";
             string colour = "red";
 			
-            WebsiteGenerator websiteGenerator = new WebsiteGenerator(className, messagesToClass, techniques);
+            //WebsiteGenerator websiteGenerator = new WebsiteGenerator(className, messagesToClass, techniques);
 			StyledWebsiteGenerator styledWebsiteGenerator = new StyledWebsiteGenerator(className, messagesToClass, techniques, colour);
 
             bool run = true;
