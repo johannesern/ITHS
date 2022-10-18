@@ -33,17 +33,16 @@ namespace WPF_Grund_3
 
 		private void verifyButton_Click(object sender, RoutedEventArgs e)
 		{
-			HideInValidMessageAndBorder();
-			HideValidMessageAndBorder();
+			
 			Regex reg = new Regex(@"^[a-zA-Z]\w*@\w+\.[a-zA-Z]{2,}$");
 
 			if (reg.IsMatch(emailTextBox.Text))
 			{
-				ShowValidMessageAndBorder();
+				validLabel.Visibility = Visibility.Visible;
 			}
 			else
 			{
-				ShowInValidMessageAndBorder();
+				invalidLabel.Visibility = Visibility.Visible;
 			}
 
 			if(listBoxTries.Items.Count < 5)
@@ -55,50 +54,18 @@ namespace WPF_Grund_3
 				listBoxTries.Items.RemoveAt(listBoxTries.Items.Count - 1);
 				listBoxTries.Items.Insert(0, emailTextBox.Text);
 			}
-
-
-			
 		}
 
 		private void emailTextBox_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			
 		}
-
-		private void emailTextBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-		{
-			
-		}
-
-		private void ShowValidMessageAndBorder()
-		{
-			validBorder.Visibility = Visibility.Visible;
-			validEmailLabel.Visibility = Visibility.Visible;
-		}
-		private void ShowInValidMessageAndBorder()
-		{
-			InValidBorder.Visibility = Visibility.Visible;
-			InValidEmailLabel.Visibility = Visibility.Visible;
-		}
-		private void HideValidMessageAndBorder()
-		{
-			validBorder.Visibility = Visibility.Hidden;
-			validEmailLabel.Visibility = Visibility.Hidden;
-		}
-		private void HideInValidMessageAndBorder()
-		{
-			InValidBorder.Visibility = Visibility.Hidden;
-			InValidEmailLabel.Visibility = Visibility.Hidden;
-		}
-
+				
 		private void emailTextBox_GotMouseCapture(object sender, MouseEventArgs e)
 		{
+			validLabel.Visibility = Visibility.Hidden;
+			invalidLabel.Visibility = Visibility.Hidden;
 			emailTextBox.Text = String.Empty;
-		}
-
-		private void listBoxTries_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			
 		}
 	}
 }
