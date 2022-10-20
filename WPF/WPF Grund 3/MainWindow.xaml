@@ -7,20 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="416" Width="552">
     <Grid Margin="0,0,20,25">
-        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="20" Margin="84,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Background="White" TextChanged="emailTextBox_TextChanged" MouseLeftButtonDown="emailTextBox_MouseLeftButtonDown" GotMouseCapture="emailTextBox_GotMouseCapture"/>
+        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="20" Margin="84,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Background="White" TextChanged="emailTextBox_TextChanged" GotMouseCapture="emailTextBox_GotMouseCapture"/>
         <Button x:Name="verifyButton" Content="Verify email" HorizontalAlignment="Left" Height="29" Margin="234,122,0,0" VerticalAlignment="Top" Width="97" Click="verifyButton_Click"/>
         <Label Content="Type in your new e-mail:" HorizontalAlignment="Left" Margin="84,59,0,0" VerticalAlignment="Top" Width="224" Height="38" FontSize="20"/>
-        <Border x:Name="validBorder" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="40" Margin="349,87,0,0" VerticalAlignment="Top" Width="113" Visibility="Hidden"/>
-        <Label x:Name="validEmailLabel" Content="Valid Email!" HorizontalAlignment="Left" Height="40" Margin="350,87,0,0" VerticalAlignment="Top" Width="113" FontSize="20" RenderTransformOrigin="0.5,0.5" Foreground="#FF17BD00" Background="White" Visibility="Hidden">
+        <Label x:Name="validLabel" Content="Valid Email!" HorizontalAlignment="Left" Height="40" Margin="343,90,0,0" VerticalAlignment="Top" Width="113" FontSize="20" RenderTransformOrigin="0.5,0.5" Foreground="#FF17BD00" Background="White" Visibility="Visible">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <RotateTransform/>
-                    <TranslateTransform X="-0.789"/>
+                    <TranslateTransform X="0"/>
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <ListBox x:Name="listBoxTries" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="84,227,201,10" SelectionChanged="listBoxTries_SelectionChanged"/>
+        <Label x:Name="invalidLabel" Content="Invalid Email..." HorizontalAlignment="Left" Height="40" Margin="343,90,0,0" VerticalAlignment="Top" Width="140" FontSize="20" RenderTransformOrigin="0.5,0.5" Foreground="#FFB52727" Background="White" Visibility="Hidden"/>
+        <ListBox x:Name="listBoxTries" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="84,227,201,10"/>
         <Label Content="Fem senaste försöken" HorizontalAlignment="Left" Margin="84,201,0,0" VerticalAlignment="Top" Width="142"/>
 
     </Grid>
